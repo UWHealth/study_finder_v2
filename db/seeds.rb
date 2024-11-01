@@ -7,28 +7,18 @@
 # ============================================
 
 system = {
-  initials: 'UMN',
-  school_name: 'University of Minnesota',
+  initials: 'UW (Development Server)',
+  school_name: 'University of Wisconsin School of Medicine and Public Health',
   system_name: 'StudyFinder',
-  system_header: 'Make A Difference. Get Involved.',
-  system_description: "<p>Participating in research is one of the most powerful things you can do to be part of tomorrow's health care breakthroughs. The U of M is always looking for people who are willing to participate in studies, so that our researchers can better understand how to diagnose, treat, and prevent diseases and conditions.</p><p>Use this StudyFinder website to quickly and easily identify U of M studies that need volunteers. Every study is different - some need healthy volunteers, while others are looking for people with a specific condition - so we've created search filters to help you find the study that's right for you. You can also filter by age, and search by keyword to find studies focused on specific conditions and diseases.</p><p>By getting involved with research, you can help transform the lives of millions.</p>",
-  researcher_description: "<h2>What researchers need to know about StudyFinder</h2>
-    <p>StudyFinder displays data about actively enrolling University of Minnesota studies in a way that’s intuitive and user-friendly. This information is extracted from <a href=\"http://clinicaltrials.gov\">ClinicalTrials.gov</a> and augmented with data from the OnCore clinical trials management system, when available.</p>
-    <p>To help potential participants better navigate and connect with University research opportunities, we encourage you to periodically review your studies and update the description and contact information, as appropriate.</p><p>Please also be aware that people may email you via StudyFinder to inquire about a study. We urge you to work directly with these potential participants, and to contact the StudyFinder team with any questions.</p><h3>How to update your study</h3><p>You can update select study information on this website or directly in the source data (<a href=\"http://clinicaltrials.gov\">ClinicalTrials.gov</a> and/or OnCore).</p><p>To update your study on StudyFinder: </p>
-    <ul>
-      <li>Click on the maroon  \"Look up/Edit Study Information\" button toward the bottom of this page.</li>
-      <li>Log in using your Internet ID.</li>
-      <li>Look up your study information by entering the System ID, which is either Study NCT ID from <a href=\"http://clinicaltrials.gov\">ClinicalTrials.gov</a>, or Protocol ID from OnCore.</li>
-      <li>Ensure the primary contact is a suitable person for potential participants to reach out to via email.</li>
-      <li>Save your changes by entering the secret key, and clicking the \"Update Trial\" button at the bottom of the page.</li>
-    </ul>
-    <p>If you have questions or comments, or need assistance updating your study information, please contact us at <a href=\"mailto:sfinder@umn.edu\">sfinder@umn.edu</a>.</p>",
-  search_term: 'University of Minnesota',
-  default_url: 'http://studyfinder.umn.edu',
-  default_email: 'sfinder@umn.edu',
+  system_header: '(Development Server) Do you want to have an impact on future health? You can!',
+  system_description: "<p>When you join a clinical research study, you contribute to new health discoveries. Your participation helps doctors and other researchers understand how to diagnose, treat and prevent diseases.  As more people participate, we can change lives for the better..</p><p> Use this website to quickly and easily find clinical studies that are open and seeking participants.</p><p>Thank you!</p>",
+  researcher_description: "<h2>Information for researchers about StudyFinder</h2><p>Studyfinder is a recruitment tool for clinical trials conducted at UW Health and the UW School of Medicine and Public Health. This site includes both oncology and non-oncology clinical trials.</p><p>Studyfinder displays data in a way that is intuitive and user-friendly for the public. Currently, in order to post a study on Study Finder the study must be listed in OnCore and have a ClinicalTrials.gov number. <p>The study will not display until listed on ClinicalTrials.gov and a status of <span style=\"text-decoration: underline;\">Open to Accrual</span> in OnCore.</p><br><p>For information about how to post studies on StudyFinder, please see: <a href=\"https://kb.wisc.edu/ictr/96376\">OnCore Knowledgebase</a></p><p>For more general questions about Studyfinder, please email <a href=\"mailto:studyinfo@ictr.wisc.edu\">studyinfo@ictr.wisc.edu</a></p>",
+  search_term: 'madison AND (wisconsin OR wi)',
+  default_url: 'https://clinicaltrials.uwhealth.org',
+  default_email: 'studyinfo@ictr.wisc.edu',
   display_all_locations: false,
   secret_key: 'test',
-  contact_email_suffix: '@umn.edu'
+  contact_email_suffix: ''
 }
 
 system_info = SystemInfo.find_or_initialize_by(initials: system[:initials])
