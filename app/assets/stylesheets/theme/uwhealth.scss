@@ -1,0 +1,71 @@
+$school_main_color: #c5050c; //UW Red
+$school_vibrant_color: #ee2842; //Vibrant Red
+$school_secondary_color: #dadfe1;
+$school_blue_color: #065dba; //Health Blue
+$school_dark_color: #001964; //Dark Blue
+$school_darkest_color: #282728;
+$school_footer_text_color: #adadad;
+$school_footer_link_color: #fff;
+$school_bg_color: #fff;
+$body_text: #494949;
+
+.brand {
+  background: url(uwhealth_logo.png);
+  background-size: 100% 100%;
+  width: 217px;
+  height: 34px;
+  margin-top: 10px;
+}
+
+.navbar {
+  .system-logo {
+    background: url(sf-logo-uw.png);
+    background-size: 100% 100%;
+    width: 260px;
+    height: 48px;
+  }
+}
+
+.categories a{
+  background: $school_blue_color;
+  color: white;
+}
+
+.btn-school {
+  background: $school_blue_color;
+  color: white;
+
+  &:hover {
+    color: $body_text;
+    background: $school_secondary_color;
+  }
+}
+
+.btn-school-inverse {
+  color: $school_blue_color;
+  background: $school_secondary_color;
+}
+
+.main-content {
+  background: $school_bg_color;
+  font-weight: 500;
+}
+
+.footer-content{
+  border-top: 5px solid $school_main_color;
+  background: $school_dark_color;
+  color: $school_footer_text_color;
+  
+  a, a:hover {
+    color: $school_footer_link_color;
+  }
+}
+
+//https://brand.wisc.edu/web/colors/
+
+g#studyfinder-logo-study {
+  fill: $school_main_color;
+}
+g#studyfinder-logo-finder {
+  fill: #424450 !important;
+}
