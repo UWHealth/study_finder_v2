@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.1.3"
 gem "sprockets-rails"
 gem "foreman"
 
@@ -9,7 +9,7 @@ gem 'pg', '~> 1.0'
 gem 'responders'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
-gem 'jquery-rails', '4.3.5'
+gem 'jquery-rails', '4.4.0'
 gem 'json'
 gem 'jbuilder', '~> 2.0'
 gem 'haml'
