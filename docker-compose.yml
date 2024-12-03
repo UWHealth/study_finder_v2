@@ -1,4 +1,12 @@
 services:
+  openldap:
+    image: osixia/openldap:1.5.0
+    volumes:
+      - ./ldap-data:/var/lib/ldap
+      - ./ldap-config:/etc/ldap/slapd.d
+    ports:
+      - "127.0.0.1:636:636"
+      - "127.0.0.1:389:389"
   elasticsearch:
     image: elasticsearch:8.10.2
     environment:
@@ -27,10 +35,10 @@ services:
     environment:
       - USER=${USER}
       - ELASTICSEARCH_URL=elasticsearch
-      - theme=uwhealth
     ports:
       - "127.0.0.1:3000:3000"
     depends_on:
+      - openldap
       - elasticsearch
       - postgres
 volumes:
