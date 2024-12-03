@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_25_203753) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_26_031045) do
+  create_schema "auth"
+  create_schema "extensions"
+  create_schema "graphql"
+  create_schema "graphql_public"
+  create_schema "pgbouncer"
+  create_schema "pgsodium"
+  create_schema "pgsodium_masks"
+  create_schema "realtime"
+  create_schema "storage"
+  create_schema "vault"
+
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_graphql"
+  enable_extension "pg_stat_statements"
+  enable_extension "pgcrypto"
+  enable_extension "pgjwt"
+  enable_extension "pgsodium"
   enable_extension "plpgsql"
+  enable_extension "supabase_vault"
+  enable_extension "uuid-ossp"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -290,10 +308,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_203753) do
     t.boolean "healthy_volunteers_override"
     t.date "added_on"
     t.boolean "display_simple_description", default: true, null: false
-    t.boolean "rare_disease_flag"
     t.string "nct_id"
     t.boolean "approved", default: false, null: false
-    t.string "annotations_flag"
     t.string "protocol_type"
     t.string "simple_description_override"
     t.index ["approved"], name: "index_study_finder_trials_on_approved"
@@ -335,6 +351,22 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_203753) do
     t.boolean "display_label_on_show", default: true
     t.boolean "display_on_show", default: true
     t.boolean "display_if_null_on_show", default: true
+  end
+
+  create_table "weather", id: false, force: :cascade do |t|
+    t.string "city", limit: 80
+    t.integer "temp_lo"
+    t.integer "temp_hi"
+    t.float "prcp"
+    t.date "date"
+  end
+
+  create_table "weather2", id: false, force: :cascade do |t|
+    t.string "city", limit: 80
+    t.integer "temp_lo"
+    t.integer "temp_hi"
+    t.float "prcp"
+    t.date "date"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

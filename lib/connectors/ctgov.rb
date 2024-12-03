@@ -23,7 +23,8 @@ module Connectors
 
     def study_filters
       q = {
-          'query.locn' => "AREA[LocationFacility]#{@location} AND AREA[LocationStatus]RECRUITING",
+          'query.locn' => "#{@location}",
+          'aggFilters' => "healthy:y,status:not rec",
           'query.term' => "AREA[LastUpdatePostDate]RANGE[#{@start_date},#{@end_date}]",
           countTotal: true,
           pageSize: 100,
@@ -127,7 +128,8 @@ module Connectors
     def nct_ids_for_location(location, page_token = nil)
       ids = []
       q = {
-          'query.locn' => "SEARCH[Location](AREA[LocationFacility]#{location} AND AREA[LocationStatus]RECRUITING)",
+          'query.locn' => "#{@location}",
+          'aggFilters' => "healthy:y,status:not rec",
           fields: "NCTId",
           countTotal: true,
           pageSize: 1000,
