@@ -23,3 +23,4 @@
 /ldap-config
 /ldap-data
 /config/database.yml
+config/database copy.yml
