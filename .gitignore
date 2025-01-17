@@ -20,3 +20,6 @@
 # Ignore application configuration
 /config/application.yml
 /.byebug_history
+/ldap-config
+/ldap-data
+/config/database.yml

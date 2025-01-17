@@ -3,33 +3,39 @@ require 'net/ldap'
 module Modules
   class Ldap
     def authenticate(x500, password)
-      # initialize our return hash with some defaults
-      _return = Hash.new
-      _return[:ldap_user] = nil
-      _return[:success] = false
-      _return[:message] = ''
+      # Initialize our return hash with default values
+      result = {
+        ldap_user: nil,
+        success: false,
+        message: ''
+      }
 
-      ldap_user = Net::LDAP.new(
-        host: ENV['host'],
-        encryption: (ENV['encryption'] || 'simple_tls').to_sym,
-        port: ENV['port'],
+      # Initialize the LDAP connection
+      ldap = Net::LDAP.new(
+        host: ENV['host'] || 'localhost', # Default to localhost if no environment variable is set
+        encryption: {
+          method: (ENV['encryption'] || 'simple_tls').to_sym
+        },
+        encryption: nil,
+        port: ENV['port'] ? ENV['port'].to_i : 636, # Convert port to an integer, default to 636
         auth: {
           method: :simple,
-          username: "#{x500}@uwhis.hosp.wisc.edu",
+          username: "cn=#{x500},#{ENV['base']}",
           password: password.to_s
         },
         connect_timeout: 3 # Timeout in seconds
       )
 
-      _return[:ldap_user] = x500
+      result[:ldap_user] = x500
 
-      if ldap_user.bind
-        _return[:success] = true
+      # Bind to the LDAP server
+      if ldap.bind
+        result[:success] = true
       else
-        _return[:message] = 'User authentication with LDAP failed.'
+        result[:message] = "User authentication with LDAP failed. Error: #{ldap.get_operation_result.message}"
       end
 
-      _return
+      result
     end
   end
 end
