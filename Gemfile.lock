@@ -232,9 +232,9 @@ GEM
       net-protocol
     net-ssh (7.2.0)
     nio4r (2.5.9)
-    nokogiri (1.15.4-aarch64-linux)
+    nokogiri (1.18.1-aarch64-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.15.4-x86_64-linux)
+    nokogiri (1.18.1-x86_64-linux-gnu)
       racc (~> 1.4)
     pg (1.5.4)
     psych (5.1.1.1)
