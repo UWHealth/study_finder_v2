@@ -33,6 +33,7 @@ gem "font-awesome-sass", "~> 6.2.1"
 
 group :development do
   gem 'ed25519'
+  gem 'bcrypt_pbkdf'
   gem 'puma'
   gem 'listen'
   gem 'spring'
